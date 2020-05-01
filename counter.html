@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Counter</title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      
+</head>
+    <body>
+        <div class="container-fluid">
+            <div class="row h-100">
+                <div class="col-md-12 bg-dark"></div>
+            </div>
+            <div class="row bg-warning text-center" id="counter">
+                <div class="col-md-4 mt-5 mb-5 ">
+                    <img class="img img-fluid " src="45533.png" style="height:100px">
+                  <h2><span class="counter-value h2 " data-count="100"><b>0</b></span></h2>
+                  <p class="text-body">Events</p>
+                </div>
+                <div class="col-md-4 mt-5  mb-5 ">
+                    <img class="img img-fluid " src="sponsor.png" style="height:100px">
+                    <h2 class="h2 counter-value" data-count="80"><b>0</b></h2>
+                    <p class="text-body">SPONSORS</p>
+                  </div>
+                  <div class="col-md-4 mt-5  mb-5">
+                    <img class="img img-fluid " src="register.png" style="height:100px">
+                      <h2 class="h2 counter-value" data-count="50"><b>0</b></h2>
+                      <p class="text-body">NO. OF REGISTRATIONS</p>
+                    </div>
+              </div>
+        </div>
+        <script>
+            var a = 0;
+          $(window).scroll(function() {
+          
+            var oTop = $('#counter').offset().top - window.innerHeight;
+            if (a == 0 && $(window).scrollTop() > oTop) {
+              $('.counter-value').each(function() {
+                var $this = $(this),
+                  countTo = $this.attr('data-count');
+                $({
+                  countNum: $this.text()
+                }).animate({
+                    countNum: countTo
+                  },
+          
+                  {
+          
+                    duration: 3000,
+                    easing: 'swing',
+                    step: function() {
+                      $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                      $this.text(this.countNum);
+                    }
+          
+                  });
+              });
+              a = 1;
+            }
+          
+          });
+          </script>
+        
+    </body>
+
+</html>
